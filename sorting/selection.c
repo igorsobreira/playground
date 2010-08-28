@@ -1,5 +1,5 @@
 /*
- * Selection 
+ * Selection sorting
  */
 
 #include <stdio.h>
