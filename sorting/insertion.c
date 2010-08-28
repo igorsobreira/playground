@@ -29,7 +29,6 @@ int main() {
     int numbers[5] = {6, 2, 9, 4, 3};
     int expected[5] = {2, 3, 4, 6, 9};
     int length = 5;
-    int i;
 
     sort(numbers, length);
     assert_array(expected, numbers, length);
