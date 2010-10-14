@@ -10,15 +10,17 @@ which do not exceed four million.
 '''
 
 def solve_problem(limit):
-    num1, num2, sum = 1, 1, 0
+    # tip: every 3rd element of fibonacci sequence is even
 
-    while True:
-        aux = num1 + num2
-        if aux > limit:
-            break
-        num1, num2 = num2, aux
-        if aux % 2 == 0:
-            sum += aux
+    num1, num2 = 1, 1
+    num3 = num1 + num2
+    sum = 0
+
+    while num2 < limit:
+        sum += num3
+        num1 = num3 + num2
+        num2 = num1 + num3
+        num3 = num1 + num2
 
     return sum 
 
