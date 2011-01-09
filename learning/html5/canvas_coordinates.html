@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Canvas Coordinates</title>
+</head>
+<body>
+    <p><a href="index.html" rel="index">Index</a></p>
+
+    <canvas width=="300" height="300" id="c"></canvas>
+    
+    <script type="text/javascript">
+
+    function CanvasCoordinates(context) {
+        this.context = context;
+        this.context.font = "bold 12px Helvetica Neue";
+    }
+
+    CanvasCoordinates.prototype = {
+
+        draw: function() {
+            this.drawArea();
+            this.drawLineY();
+            this.drawLineX();
+            this.writeNumbers();
+        },
+
+        drawArea: function () {
+            this.context.beginPath();
+
+            for (var x = 0.5; x < 300; x += 10) {
+                this.context.moveTo(x, 0);
+                this.context.lineTo(x, 300);
+            }
+            for (var y = 0.5; y < 300; y += 10) {
+                this.context.moveTo(0, y);
+                this.context.lineTo(300, y);
+            }
+
+            this.context.strokeStyle = "#eee";
+            this.context.stroke();
+        },
+        
+        drawLineY: function() {
+            this.context.beginPath();
+            
+            // y line
+            this.context.moveTo(40, 0);
+            this.context.lineTo(40, 140);
+            this.context.moveTo(40, 155);
+            this.context.lineTo(40, 300);
+            // arrow's left side
+            this.context.moveTo(35, 295);
+            this.context.lineTo(40, 300);
+            // arrow's right side
+            this.context.lineTo(45, 295);
+            this.context.lineTo(40, 300);
+
+            this.context.strokeStyle = "#000";
+            this.context.stroke();
+            
+            this.context.fillText("y", 37, 150);
+        },
+
+        drawLineX: function() {
+            this.context.beginPath();
+
+            // x line
+            this.context.moveTo(0, 40);
+            this.context.lineTo(140, 40);
+            this.context.moveTo(155, 40);
+            this.context.lineTo(300, 40);
+            // arrow's left side
+            this.context.moveTo(295, 35);
+            this.context.lineTo(300, 40);
+            // arrow's right side
+            this.context.moveTo(295, 45);
+            this.context.lineTo(300, 40);
+
+            this.context.strokeStyle = "#000";
+            this.context.stroke();
+
+            this.context.fillText("x", 144, 44);
+        },
+
+        writeNumbers: function() {
+            this.context.textBaseline = "top";
+            this.context.fillText("(0,0)", 5, 5);
+            this.context.textBaseline = "bottom";
+            this.context.textAlign = "right";
+            this.context.fillText("(300,300)", 290, 290);
+        }
+    }
+
+    var canvas = document.getElementById("c");
+    var context = canvas.getContext("2d");
+
+    var canvasCoordinates = new CanvasCoordinates(context);
+    canvasCoordinates.draw();
+        
+    </script>
+</body>
+</html>

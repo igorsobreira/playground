@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Canvas Gradients</title>
+    <style>
+        canvas { float: left; margin: 20px; }
+    </style>
+</head>
+<body>
+    <p><a href="index.html" rel="index">Index</a></p>
+
+    <canvas id="a" width="300" height="300"></canvas>
+    <canvas id="b" width="300" height="300"></canvas>
+    <canvas id="c" width="300" height="300"></canvas>
+    
+    <script type="text/javascript">
+        
+        // linear gradient, left -> right
+        var canvas = document.getElementById("a");
+        var context = canvas.getContext("2d");
+        
+        var gradient = context.createLinearGradient(0, 0, 300, 0);
+
+        gradient.addColorStop(0, "black");
+        gradient.addColorStop(1, "white");
+        
+        context.fillStyle = gradient;
+        context.fillRect(0, 0, 300, 300);
+
+        // linear gradient, top -> bottom
+        var canvas = document.getElementById("b");
+        var context = canvas.getContext("2d");
+        
+        var gradient = context.createLinearGradient(0, 0, 0, 300);
+
+        gradient.addColorStop(0, "black");
+        gradient.addColorStop(1, "white");
+        
+        context.fillStyle = gradient;
+        context.fillRect(0, 0, 300, 300);
+
+        // cone
+        var canvas = document.getElementById("c");
+        var context = canvas.getContext("2d");
+        
+        var gradient = context.createRadialGradient(150, 0, 0, 150, 600, 270);
+
+        gradient.addColorStop(0, "black");
+        gradient.addColorStop(0.66, "white")
+        gradient.addColorStop(1, "black");
+        
+        context.fillStyle = gradient;
+        context.fillRect(0, 0, 300, 300);
+
+    </script>
+</body>
+</html>
