@@ -29,22 +29,17 @@ class Node:
 def print_by_level(node):
     node.level = 1
     queue = [node]
-    output = ''
+    output = []
     current_level = node.level
 
     while len(queue) > 0:
         current_node = queue.pop(0)
         
         if current_node.level > current_level:
-            terminator = '\n'
+            output.append('\n')
             current_level += 1
-        elif current_level == 1:
-            terminator = ''
-        else:
-            terminator = ' '
 
-        output += terminator
-        output += str(current_node)
+        output.append(str(current_node) + ' ')
 
         if current_node.left:
             current_node.left.level = current_level + 1
@@ -53,7 +48,8 @@ def print_by_level(node):
             current_node.right.level = current_level + 1
             queue.append(current_node.right)
 
-    return output + '\n'
+    output.append('\n')
+    return ''.join(output)
 
 
 if __name__ == '__main__':
@@ -63,9 +59,6 @@ if __name__ == '__main__':
     root.left = Node(3)
     root.right = Node(8)
 
-    result = print_by_level(root)
-    assert '5\n3 8\n' == result, repr(result)
-
     root.left.left = Node(1)
     root.left.right = Node(4)
     
@@ -73,6 +66,6 @@ if __name__ == '__main__':
     root.right.right = Node(9)
 
     result = print_by_level(root)
-    assert '5\n3 8\n1 4 6 9\n' == result, repr(result)
+    assert '5 \n3 8 \n1 4 6 9 \n' == result, repr(result)
 
     print result
