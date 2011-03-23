@@ -1,34 +1,29 @@
 
 def main(filename):
 
-    file_obj = open(filename)
-    num_cases = int(file_obj.readline())
-    cases = []
+    with open(filename) as file_obj:
+        num_cases = int(file_obj.readline())
+        cases = []
 
-    for i in range(num_cases):
-        n = int(file_obj.readline())
-        lines = read_next_n_lines(file_obj, n)
-        cases.append(solve_case(i+1, lines))
+        for case in xrange(num_cases):
+            num_lines = int(file_obj.readline())
+            cases.append(solve_case(case, num_lines, file_obj))
 
-    file_obj.close()
     return "\n".join(cases)
 
-def read_next_n_lines(file_obj, n):
+def solve_case(case, num_lines, file_obj):
     lines = []
-    while n > 0:
-        lines.append(map(int, file_obj.readline().rstrip('\n').split()))
-        n -= 1
-    return lines
-
-def solve_case(case_id, lines):
     inters = 0
-    for (i, (a,b)) in enumerate(lines):
+    for i in xrange(num_lines):
+        a,b = map(int, file_obj.readline().strip().split())
+        lines.append((a,b))
+
         for ai,bi in lines[0:i]:
             if (a > ai and bi > b) or (a < ai and b > bi):
                 inters += 1
 
-    return "Case #%d: %d" % (case_id, inters)
+    return "Case #%d: %d" % (case+1, inters)
 
 
 if __name__ == '__main__':
-    print main("A-small-practice.in")
+    print main("A-large-practice.in")
