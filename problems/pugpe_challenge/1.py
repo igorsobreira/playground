@@ -3,6 +3,8 @@ Desafio PUG-PE
 ID: 1
 Semana: 11/02/2011
 
+https://github.com/pugpe/pugpe_challenge/blob/master/desafio_20110211/desafio.py
+
 Problema:
 
     Dado uma lista de elementos, o objetivo eh converter esta lista em uma lista de sub-listas de elementos consecutivos duplicados.
@@ -27,7 +29,7 @@ Problema:
 """
 
 import unittest
-from itertools import groupby, repeat
+from itertools import groupby
 
 def pack(l):
     return [ list(g) for (k,g) in groupby(l) ]
@@ -35,10 +37,10 @@ def pack(l):
 class Desafio1(unittest.TestCase):
 
     def test_pack_duplicates(self):
-        sampleList = ['a','a','a','a','b','c','c','a','a','d','e','e','e','e']
-        self.assertEqual([['a','a','a','a'],['b'],['c','c'],['a','a'],['d'],['e','e','e','e']],
-                    pack(sampleList))
+        sample = ['a','a','a','a','b','c','c','a','a','d','e','e','e','e']
+        expected = [['a','a','a','a'],['b'],['c','c'],['a','a'],['d'],['e','e','e','e']]
 
+        self.assertEquals(expected, pack(sample))
 
 if __name__ == '__main__':
-    unittest.main()   
+    unittest.main()
