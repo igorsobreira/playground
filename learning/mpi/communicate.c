@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <mpi.h>
 
-#define TAG 2
+#define TAG 1
 
 int main (int argc, char **argv) {
     
@@ -15,13 +15,13 @@ int main (int argc, char **argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     if ( rank == 0 ) {
-        printf("Entre com um valor inteiro: ");
+        printf("Type an integer: ");
         fflush(stdout);
         scanf("%d", &v);
 
         MPI_Send(&v, 1, MPI_INT, 1, TAG, MPI_COMM_WORLD);
         MPI_Recv(&v, 1, MPI_INT, 1, TAG, MPI_COMM_WORLD, &status);
-        printf("Valor enviado pelo processo 1 foi %d\n", v);
+        printf("Value sent from process 1 was: %d\n", v);
         fflush(stdout);
 
     } else if ( rank == 1 ) {

@@ -9,7 +9,7 @@ int main (int argc, char **argv) {
     MPI_Comm_size(MPI_COMM_WORLD, &quantos);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-    printf("Olá mundo, sou processo %d de %d rodando.\n", rank+1, quantos);
+    printf("Hello world, I'm process %d from %d running.\n", rank+1, quantos);
     
     MPI_Finalize();
 

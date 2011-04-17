@@ -2,8 +2,8 @@
 
 static PyObject *is_prime(PyObject *self, PyObject *args) {
     /**
-     * Função que recebe um inteiro como parâmatro, caso este seja um número primo, retorna
-     * ele próprio, se não for retorna None
+     * Função que recebe um inteiro como parâmatro e retorna True
+     * se for primo ou False se não for
      */
     int num;
     int cont;

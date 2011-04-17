@@ -1,17 +1,24 @@
+'''
+The prime factors of 13195 are 5, 7, 13 and 29.
 
-# FIXME: demora mais de um minuto
+What is the largest prime factor of the number 600851475143 ?
 
-num = 1
-nums = range(1, 19+1)
-def verifica(n):
-    for a in nums:
-        if n % a != 0:
+'''
+
+def solve_problem(limit):
+    i = limit
+    while i > 0:
+        if is_prime(i):
+            print i
+        i -= 1
+
+def is_prime(num):
+    for n in range(2, num):
+        if num % n == 0:
             return False
     return True
 
-r = False
-while r == False:
-    num += 1
-    r = verifica(num)
-    
-print num
+if __name__ == '__main__':
+    print is_prime(4)
+    print is_prime(7)
+    #solve_problem(13195)

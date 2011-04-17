@@ -68,12 +68,32 @@ function postorder(node)
 end
 
 
+function preorder(node)
+    local buffer = Buffer:new()
+
+    function visit(node)
+        if node ~= nil then
+            buffer:add(node.value)
+            visit(node.left)
+            visit(node.right)
+        end
+    end
+
+    visit(node)
+    return buffer:join()
+end
+
+
 function test_inorder()
     assert_equal("1 3 4 5 6 8 9", inorder(build_tree()))
 end
 
 function test_postorder()
     assert_equal("1 4 3 6 9 8 5", postorder(build_tree()))
+end
+
+function test_preorder()
+    assert_equal("5 3 1 4 8 6 9", preorder(build_tree())) 
 end
 
 function build_tree()
