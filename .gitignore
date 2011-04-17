@@ -1,3 +1,6 @@
 *.swo
 *.swp
 *.bin
+.DS_Store
+*.pyc
+a.out
