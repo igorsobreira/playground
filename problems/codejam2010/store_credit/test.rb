@@ -1,23 +1,13 @@
 require "test/unit"
 require "./main.rb"
+require "../gcj_test.rb"
 
 class StoreCreditTest < Test::Unit::TestCase
   
-  def test_small_input
-    result = main('A-small-practice.in')
-    expected = read_file('A-small-practice.out')
+  include GCJTestMethods
 
-    assert_equal expected, result
+  def solve(filename)
+    main filename
   end
-
-  def test_large_input
-    result = main('A-large-practice.in')
-    expected = read_file('A-large-practice.out')
-
-    assert_equal expected, result
-  end
-
-  def read_file(filename)
-    File.new(filename).read.strip
-  end
+  
 end

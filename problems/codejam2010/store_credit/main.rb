@@ -26,6 +26,4 @@ def find_items(credit, prices)
   end
 end
 
-if $0 == __FILE__
-  puts main('A-small-practice.in')
-end
+puts main 'A-small-practice.in' if $0 == __FILE__
