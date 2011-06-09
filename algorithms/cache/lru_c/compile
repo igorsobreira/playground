@@ -1,0 +1,4 @@
+#!/bin/bash
+gcc -c blist.c -o blist.o
+gcc -shared -Wall,-soname,libblist.so -o libblist.so blist.o
+rm -rf blist.o
