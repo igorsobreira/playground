@@ -1,0 +1,106 @@
+Utils
+-----
+
+C-h m : show all key bindings
+C-x l : show total and current line numbers
+
+Searching
+---------
+
+isearch-forward  C-s
+isearch-backard  C-r
+
+Hit <RET> on isearch-forward enters Nonincremental Search)
+
+After search, C-u C-<SPC> backs to where you was before
+
+C-s C-s 
+    starts a new search using the last searched word
+M-p and M-n  
+    to search for recently searched items
+C-g 
+    removes the not found caractes from minibufer
+
+To search for control caracters quote it with C-q
+To search for newline caracter: C-j
+
+M-%
+    invokes `query-replace`
+M-<TAB>
+    auto-completes search word using search ring
+
+C-h C-h
+    show search help on isearch- mode
+
+C-w
+    copies the current word to search string
+C-y 
+    copies the current line to search string
+M-y
+    copies string from kill ring to search string
+C-M-w  C-M-y
+    modifies the search string
+    
+
+Python
+------
+
+C-c C-u -> python-beginning-of-block
+
+Git - Magit
+-----------
+http://philjackson.github.com/magit/magit.html
+
+Git:mater  ":" means file was modified,
+	   "-" means unmodified
+
+M-x magit-status
+
+ -> Stage/Unstage/Commit
+
+    s	    stage file
+    u	    unstage file
+    U	    unstage everything
+    k 	    remove untracked file
+    i 	    add file to .gitignore (C-u i asks for the filename)
+    c	    open a buffer to write commit message (*magit-log-edit*)
+    	    inside this buffer:
+	           C-c C-c  commits
+		   C-c C-a  say the next commit will amend
+
+  -> Logs and Reflogs
+
+    l       show log
+    L	    show more verbose log
+    	    inside *magit-log*
+	    	   RET	    show diff and move pointer to commit buffer *magit-commit*
+		   SPC DEL  show diff and keep pointer in log buffer
+		       	    SPC scroll down
+			    DEL scroll up
+		   a 	    cherry-pick current commit
+		   A	    cherry-pick and commit (if no conflicts)
+		   v 	    revert current commit
+		   C-w	    copy commit hash into kill ring
+	    inside *magit-commit*
+	    	   TAB      show/hide current diff
+		   RET	    go to file
+     h      browse current reflot
+     H	    ask for reflog to browse
+
+  -> Diff
+     
+     d	
+     D
+
+Inside a file:
+
+C-x v =	   show diff, use C-u before to choose branch/tag
+C-x v u	   discard changes
+C-x v l	   show log
+C-x v i    add file to repository
+
+
+TAGS
+----
+
+M-.	find tag
