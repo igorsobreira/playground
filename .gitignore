@@ -4,4 +4,4 @@
 .DS_Store
 *.pyc
 a.out
-*~
+*~*.o

@@ -35,3 +35,7 @@
     (message "It's not")))
 
 (cmp-fill 80)
+
+(defun goto-beginning ()
+  (interactive)
+  (goto-char (point-min)))
